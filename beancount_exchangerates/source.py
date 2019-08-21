@@ -17,7 +17,7 @@ def to_decimal(number, precision):
 class Source(source.Source):
 
     def _get_price(self, ticker, time=None):
-        base, symbol = ticker.split('_')
+        base, symbol = ticker.split(':')
         url_params = {
             'base': base,
             'symbols': symbol,
