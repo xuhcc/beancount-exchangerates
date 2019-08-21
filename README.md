@@ -8,6 +8,14 @@ List of supported currencies: https://www.ecb.europa.eu/stats/policy_and_exchang
 
 No API key required.
 
+## Installation
+
+Install latest version with `pip`:
+
+```
+pip install https://github.com/xuhcc/beancount-exchangerates/archive/master.zip
+```
+
 ## Usage
 
 Source string format is `<quote-currency>:beancount_exchangerates/<base-currency>:<quote-currency>`.
