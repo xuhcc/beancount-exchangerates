@@ -4,7 +4,10 @@ from urllib.parse import urljoin, urlencode
 from urllib.request import urlopen
 
 from beancount.core.number import D
-from beancount.prices import source
+try:
+    from beanprice import source
+except ImportError:
+    from beancount.prices import source
 
 API_BASE_URL = 'https://api.exchangeratesapi.io/'
 
