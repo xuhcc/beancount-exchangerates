@@ -1,7 +1,8 @@
 import datetime
 import json
+import os
 from urllib.parse import urljoin, urlencode
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 from beancount.core.number import D
 try:
@@ -9,7 +10,8 @@ try:
 except ImportError:
     from beancount.prices import source
 
-API_BASE_URL = 'https://api.exchangeratesapi.io/'
+DEFAULT_PROVIDER = 'https://api.exchangerate.host'
+EXCHANGERATE_API_URL = os.environ.get('EXCHANGERATE_API_URL', DEFAULT_PROVIDER)
 
 
 def to_decimal(number, precision):
@@ -30,8 +32,11 @@ class Source(source.Source):
         else:
             date_str = time.strftime('%Y-%m-%d')
 
-        url = urljoin(API_BASE_URL, date_str) + '?' + urlencode(url_params)
-        response = urlopen(url)
+        url = urljoin(EXCHANGERATE_API_URL, date_str) + '?' + urlencode(url_params)
+        request = Request(url)
+        # Requests without User-Agent header can be blocked
+        request.add_header('User-Agent', 'price-fetcher')
+        response = urlopen(request)
         result = json.loads(response.read().decode())
 
         price = to_decimal(result['rates'][symbol], 4)
