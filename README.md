@@ -24,7 +24,9 @@ Source string format is `<quote-currency>:beancount_exchangerates/<base-currency
 
 Default API base url is https://api.exchangerate.host. It can be changed using `EXCHANGERATE_API_URL` environment variable.
 
-Default source is ECB. It can be changed using `EXCHANGE_SOURCE` environment variable. Check https://api.exchangerate.host/sources for the complete list of sources.
+Default source is ECB. It can be changed using `EXCHANGE_SOURCE` environment variable.
+
+Check https://api.exchangerate.host/sources for the complete list of sources.
 ### Examples
 
 Evaluate source string with `bean-price`:
