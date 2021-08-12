@@ -5,6 +5,7 @@ from urllib.parse import urljoin, urlencode
 from urllib.request import Request, urlopen
 
 from beancount.core.number import D
+
 try:
     from beanprice import source
 except ImportError:
@@ -12,6 +13,8 @@ except ImportError:
 
 DEFAULT_PROVIDER = 'https://api.exchangerate.host'
 EXCHANGERATE_API_URL = os.environ.get('EXCHANGERATE_API_URL', DEFAULT_PROVIDER)
+DEFAULT_SOURCE = 'ecb'
+SOURCE = os.environ.get('EXCHANGERATE_SOURCE', DEFAULT_SOURCE)
 
 
 def to_decimal(number, precision):
@@ -26,6 +29,7 @@ class Source(source.Source):
         url_params = {
             'base': base,
             'symbols': symbol,
+            'source': SOURCE
         }
         if time is None:
             date_str = 'latest'
