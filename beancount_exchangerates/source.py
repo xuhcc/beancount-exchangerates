@@ -13,8 +13,7 @@ except ImportError:
 
 DEFAULT_PROVIDER = 'https://api.exchangerate.host'
 EXCHANGERATE_API_URL = os.environ.get('EXCHANGERATE_API_URL', DEFAULT_PROVIDER)
-DEFAULT_SOURCE = 'ecb'
-SOURCE = os.environ.get('EXCHANGERATE_SOURCE', DEFAULT_SOURCE)
+EXCHANGERATE_SOURCE = os.environ.get('EXCHANGERATE_SOURCE')
 
 
 def to_decimal(number, precision):
@@ -29,8 +28,9 @@ class Source(source.Source):
         url_params = {
             'base': base,
             'symbols': symbol,
-            'source': SOURCE
         }
+        if EXCHANGERATE_SOURCE is not None:
+            url_params['source'] = EXCHANGERATE_SOURCE
         if time is None:
             date_str = 'latest'
         else:

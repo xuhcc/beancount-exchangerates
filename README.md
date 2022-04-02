@@ -4,9 +4,7 @@ Price source for [Beancount](http://furius.ca/beancount/) that can load data fro
 
 ### exchangerate.host
 
-This service uses datasets published by the European Central Bank.
-
-List of supported forex currencies: https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html
+List of supported forex currencies: https://api.exchangerate.host/symbols
 
 No API key required.
 
@@ -24,9 +22,10 @@ Source string format is `<quote-currency>:beancount_exchangerates/<base-currency
 
 Default API base url is https://api.exchangerate.host. It can be changed using `EXCHANGERATE_API_URL` environment variable.
 
-Default source is ECB. It can be changed using `EXCHANGE_SOURCE` environment variable.
+Data source can be changed using `EXCHANGERATE_SOURCE` environment variable.
 
 Check https://api.exchangerate.host/sources for the complete list of sources.
+
 ### Examples
 
 Evaluate source string with `bean-price`:
