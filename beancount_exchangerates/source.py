@@ -23,11 +23,11 @@ def to_decimal(number, precision=4):
     return D(number).quantize(quant)
 
 
-def get_default(symbol):
+def get_default(ticker):
     if EXCHANGERATE_DEFAULTS is not None:
         for pair in EXCHANGERATE_DEFAULTS.split(','):
             key, value = pair.split('=')
-            if key == symbol:
+            if key == ticker:
                 return to_decimal(value)
 
 
@@ -53,7 +53,7 @@ class Source(source.Source):
         try:
             response = urlopen(request)
         except HTTPError:
-            price = get_default(symbol)
+            price = get_default(ticker)
             if not price:
                 raise
             price_time = datetime.datetime.now(datetime.timezone.utc)
