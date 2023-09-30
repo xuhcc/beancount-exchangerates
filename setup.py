@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name='beancount-exchangerates',
-    version='4.0.0',
+    version='5.0.0',
     description='Beancount Exchange Rates',
     packages=['beancount_exchangerates'],
     license='GPLv3',
