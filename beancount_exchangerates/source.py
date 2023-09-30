@@ -11,7 +11,7 @@ try:
 except ImportError:
     from beancount.prices import source
 
-DEFAULT_PROVIDER = 'https://api.exchangerate.host'
+DEFAULT_PROVIDER = 'https://api.frankfurter.app'
 EXCHANGERATE_API_URL = os.environ.get('EXCHANGERATE_API_URL', DEFAULT_PROVIDER)
 EXCHANGERATE_SOURCE = os.environ.get('EXCHANGERATE_SOURCE')
 
