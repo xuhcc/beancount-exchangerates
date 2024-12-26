@@ -43,10 +43,10 @@ class Source(source.Source):
             'base': base,
             'symbols': symbol,
         }
-        if EXCHANGERATE_SOURCE is not None:
-            url_params['source'] = EXCHANGERATE_SOURCE
         if EXCHANGERATE_ACCESS_KEY is not None:
             url_params['access_key'] = EXCHANGERATE_ACCESS_KEY
+        if EXCHANGERATE_SOURCE is not None:
+            url_params['source'] = EXCHANGERATE_SOURCE
         if time is None:
             date_str = 'latest'
         else:

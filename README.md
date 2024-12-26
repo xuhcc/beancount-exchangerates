@@ -1,10 +1,12 @@
 # Beancount Exchange Rates
 
-Price source for [Beancount](http://furius.ca/beancount/) that can load data from https://exchangerate.host/ or similar providers.
+Price source for [Beancount](http://furius.ca/beancount/) that can load data from https://frankfurter.dev or similar providers.
 
-### exchangerate.host
+## Providers
 
-List of supported forex currencies: https://api.exchangerate.host/symbols
+### frankfurter.dev
+
+List of supported currencies: https://api.frankfurter.dev/v1/currencies
 
 No API key required.
 
@@ -22,11 +24,9 @@ Source string format is `<quote-currency>:beancount_exchangerates/<base-currency
 
 Default API base url is `https://api.frankfurter.dev/v1/`. It can be changed using `EXCHANGERATE_API_URL` environment variable (which should end with slash) to any service that implements Fixer API.
 
-Use `EXCHANGERATE_ACCESS_KEY` to specify the `?access_key=` (if any; e.g. Frankfurter.dev does not, but e.g. ExchangeRatesAPI.io does).
+Use `EXCHANGERATE_ACCESS_KEY` to specify the `access_key` query parameter (not required by frankfurter.dev).
 
 Data source can be changed using `EXCHANGERATE_SOURCE` environment variable.
-
-Check https://api.exchangerate.host/sources for the complete list of sources.
 
 ### Examples
 
