@@ -1,6 +1,6 @@
 # Beancount Exchange Rates
 
-Price source for [Beancount](http://furius.ca/beancount/) that can load data from <https://frankfurter.dev> or other providers with similar APIs, such as <https://fixer.io> or <https://exchangeratesapi.io>.
+Price source for [Beancount](http://furius.ca/beancount/) that can load data from <https://frankfurter.dev> or other providers with similar APIs, such as <https://fixer.io> or <https://exchangeratesapi.io> (both support more symbols than Frankfurter, but only support EUR as `base` currency, at least on their free plans).
 
 ## Providers
 
@@ -34,6 +34,8 @@ Evaluate source string with `bean-price`:
 
 ```
 PYTHONPATH=.:$PYTHONPATH bean-price --no-cache -e 'CHF:beancount_exchangerates/USD:CHF'
+
+EXCHANGERATE_API_URL=https://api.exchangeratesapi.io/v1/ EXCHANGERATE_ACCESS_KEY=... bean-price --no-cache -e 'EUR:beancount_exchangerates/EUR:XAU'
 ```
 
 Set price source for commodity in beancount file:
