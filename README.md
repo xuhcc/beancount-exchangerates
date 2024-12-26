@@ -1,6 +1,6 @@
 # Beancount Exchange Rates
 
-Price source for [Beancount](http://furius.ca/beancount/) that can load data from <https://frankfurter.dev> or other providers with similar APIs.
+Price source for [Beancount](http://furius.ca/beancount/) that can load data from <https://frankfurter.dev> or other providers with similar APIs, such as <https://fixer.io> or <https://exchangeratesapi.io>.
 
 ## Providers
 
@@ -42,3 +42,4 @@ Set price source for commodity in beancount file:
 1970-01-01 commodity USD
     price: "CHF:beancount_exchangerates/USD:CHF"
 ```
+
