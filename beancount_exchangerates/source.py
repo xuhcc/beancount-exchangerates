@@ -23,7 +23,10 @@ def to_decimal(number, precision=4):
     return D(number).quantize(quant)
 
 
-def get_default(ticker):
+def get_default_price(ticker):
+    """
+    Will be used if provider doesn't support given currency
+    """
     if EXCHANGERATE_DEFAULTS is not None:
         for pair in EXCHANGERATE_DEFAULTS.split(','):
             key, value = pair.split('=')
@@ -53,7 +56,7 @@ class Source(source.Source):
         try:
             response = urlopen(request)
         except HTTPError as err:
-            price = get_default(ticker)
+            price = get_default_price(ticker)
             if not price:
                 message = f"HTTP Error: {err.code} for URL: {err.url}"
                 new_exception = RuntimeError(message)
