@@ -1,14 +1,22 @@
 # Beancount Exchange Rates
 
-Price source for [Beancount](http://furius.ca/beancount/) that can load data from <https://frankfurter.dev> or other providers with similar APIs, such as <https://fixer.io> or <https://exchangeratesapi.io> (both support more symbols than Frankfurter, but only support EUR as `base` currency, at least on their free plans).
+Price source for [Beancount](http://furius.ca/beancount/) that can load data from <https://frankfurter.dev> or other providers with similar APIs.
 
 ## Providers
 
-### frankfurter.dev
+### Frankfurter.dev
 
-List of supported currencies: https://api.frankfurter.dev/v1/currencies
+List of supported currencies: <https://api.frankfurter.dev/v1/currencies>
 
 No API key required.
+
+### ExchangeRatesAPI.io & Fixer.io
+
+<https://exchangeratesapi.io> or <https://fixer.io>:
+
+* Require an API key
+* Support more symbols than Frankfurter.dev; both the same, see <https://api.exchangeratesapi.io/symbols?access_key=...> and <https://data.fixer.io/api/symbols?access_key=...>
+* Only support EUR as `base` currency (at least on their free plans)
 
 ## Installation
 
