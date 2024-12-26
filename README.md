@@ -20,7 +20,7 @@ pip install https://github.com/xuhcc/beancount-exchangerates/archive/master.zip
 
 Source string format is `<quote-currency>:beancount_exchangerates/<base-currency>:<quote-currency>`.
 
-Default API base url is https://api.frankfurter.app. It can be changed using `EXCHANGERATE_API_URL` environment variable to any service that implements Fixer API.
+Default API base url is `https://api.frankfurter.dev/v1/`. It can be changed using `EXCHANGERATE_API_URL` environment variable (which should end with slash) to any service that implements Fixer API.
 
 Data source can be changed using `EXCHANGERATE_SOURCE` environment variable.
 
