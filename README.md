@@ -1,6 +1,6 @@
 # Beancount Exchange Rates
 
-Price source for [Beancount](http://furius.ca/beancount/) that can load data from https://frankfurter.dev or similar providers.
+Price source for [Beancount](http://furius.ca/beancount/) that can load data from <https://frankfurter.dev> or other providers with similar APIs.
 
 ## Providers
 
