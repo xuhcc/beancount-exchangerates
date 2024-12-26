@@ -14,6 +14,7 @@ except ImportError:
 
 DEFAULT_PROVIDER = 'https://api.frankfurter.dev/v1/'
 EXCHANGERATE_API_URL = os.environ.get('EXCHANGERATE_API_URL', DEFAULT_PROVIDER)
+EXCHANGERATE_ACCESS_KEY = os.environ.get('EXCHANGERATE_ACCESS_KEY')
 EXCHANGERATE_SOURCE = os.environ.get('EXCHANGERATE_SOURCE')
 EXCHANGERATE_DEFAULTS = os.environ.get('EXCHANGERATE_DEFAULTS')
 
@@ -44,6 +45,8 @@ class Source(source.Source):
         }
         if EXCHANGERATE_SOURCE is not None:
             url_params['source'] = EXCHANGERATE_SOURCE
+        if EXCHANGERATE_ACCESS_KEY is not None:
+            url_params['access_key'] = EXCHANGERATE_ACCESS_KEY
         if time is None:
             date_str = 'latest'
         else:
