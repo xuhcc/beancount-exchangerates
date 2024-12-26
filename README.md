@@ -31,12 +31,12 @@ Check https://api.exchangerate.host/sources for the complete list of sources.
 Evaluate source string with `bean-price`:
 
 ```
-PYTHONPATH=.:$PYTHONPATH bean-price --no-cache -e 'RUB:beancount_exchangerates/USD:RUB'
+PYTHONPATH=.:$PYTHONPATH bean-price --no-cache -e 'CHF:beancount_exchangerates/USD:CHF'
 ```
 
 Set price source for commodity in beancount file:
 
 ```
 1970-01-01 commodity USD
-    price: "RUB:beancount_exchangerates/USD:RUB"
+    price: "CHF:beancount_exchangerates/USD:CHF"
 ```
