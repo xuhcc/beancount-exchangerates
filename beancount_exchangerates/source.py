@@ -70,7 +70,9 @@ class Source(source.Source):
             try:
                 price = to_decimal(result['rates'][symbol])
             except KeyError as err:
-                raise RuntimeError("There is no 'rates' key in: " + str(result))
+                message = f"There is no 'rates' key from {url} in: {str(result)}"
+                new_exception = RuntimeError(message)
+                raise new_exception from err
             price_time = datetime.datetime.\
                 strptime(result['date'], '%Y-%m-%d').\
                 replace(tzinfo=datetime.timezone.utc)
