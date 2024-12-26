@@ -67,7 +67,10 @@ class Source(source.Source):
             price_time = datetime.datetime.now(datetime.timezone.utc)
         else:
             result = json.loads(response.read().decode())
-            price = to_decimal(result['rates'][symbol])
+            try:
+                price = to_decimal(result['rates'][symbol])
+            except KeyError as err:
+                raise RuntimeError("There is no 'rates' key in: " + str(result))
             price_time = datetime.datetime.\
                 strptime(result['date'], '%Y-%m-%d').\
                 replace(tzinfo=datetime.timezone.utc)
