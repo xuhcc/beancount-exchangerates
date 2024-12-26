@@ -52,10 +52,12 @@ class Source(source.Source):
         request.add_header('User-Agent', 'price-fetcher')
         try:
             response = urlopen(request)
-        except HTTPError:
+        except HTTPError as err:
             price = get_default(ticker)
             if not price:
-                raise
+                message = f"HTTP Error: {err.code} for URL: {err.url}"
+                new_exception = RuntimeError(message)
+                raise new_exception from err
             price_time = datetime.datetime.now(datetime.timezone.utc)
         else:
             result = json.loads(response.read().decode())
