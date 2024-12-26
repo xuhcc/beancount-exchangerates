@@ -18,7 +18,9 @@ EXCHANGERATE_SOURCE = os.environ.get('EXCHANGERATE_SOURCE')
 EXCHANGERATE_DEFAULTS = os.environ.get('EXCHANGERATE_DEFAULTS')
 
 
-def to_decimal(number, precision=4):
+# TODO Should really use the precision set on a commodity in Beancount instead of hard-coding something...
+# NB: The hard-coded precision of 12 is chosen because that's what Fixer.io & exchangeratesapi.io use for BTC.
+def to_decimal(number, precision=12):
     quant = D('0.' + '0' * precision)
     return D(number).quantize(quant)
 
