@@ -62,15 +62,15 @@ class Source(source.Source):
             price = get_default_price(ticker)
             if not price:
                 message = f"HTTP Error: {err.code} for URL: {err.url}"
-                new_exception = RuntimeError(message)
-                raise new_exception from err
+                raise RuntimeError(message) from err
             price_time = datetime.datetime.now(datetime.timezone.utc)
         else:
             result = json.loads(response.read().decode())
             try:
                 price = to_decimal(result['rates'][symbol])
             except KeyError as err:
-                raise RuntimeError(f"{url} KeyError: {str(err)}: {str(result)}")
+                message = f"Missing key {str(err)}: {str(result)}"
+                raise RuntimeError(message) from err
             price_time = datetime.datetime.\
                 strptime(result['date'], '%Y-%m-%d').\
                 replace(tzinfo=datetime.timezone.utc)
